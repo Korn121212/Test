@@ -8,7 +8,9 @@
 <script>
   document.addEventListener('init', function(event) {
   var page = event.target;
-
+  function showPosition(position) {
+    page.querySelector('#latlng').innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+  }
   if (page.id === 'page1') {
     page.querySelector('#push-button').onclick = function() {
       document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
@@ -41,7 +43,8 @@
       <div class="center"></div>
     </ons-toolbar>
 
-    <p>This is the second page.</p>
+    <p id="latlng">This is the second page.</p>
+    navigator.geolocation.getCurrentPosition(showPosition);
   </ons-page>
 </template>
 </body>
