@@ -17,6 +17,7 @@
     };
   } else if (page.id === 'page2') {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+    navigator.geolocation.getCurrentPosition(showPosition);
   }
 });
 </script>
@@ -44,7 +45,7 @@
     </ons-toolbar>
 
     <p id="latlng">This is the second page.</p>
-    navigator.geolocation.getCurrentPosition(showPosition);
+
   </ons-page>
 </template>
 </body>
